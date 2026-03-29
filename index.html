@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FeedbackHub - Business Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Login Page -->
+    <div id="loginPage" class="auth-page">
+        <div class="auth-container">
+            <div class="auth-card">
+                <div class="auth-header">
+                    <div class="logo-large">
+                        <span class="logo-icon">💬</span>
+                        <h1>FeedbackHub</h1>
+                    </div>
+                    <p class="auth-subtitle">Welcome back! Sign in to your business dashboard</p>
+                </div>
+                <form id="loginForm" class="auth-form">
+                    <div class="form-group">
+                        <label for="loginEmail">Email Address</label>
+                        <input type="email" id="loginEmail" placeholder="business@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Password</label>
+                        <input type="password" id="loginPassword" placeholder="Enter your password" required>
+                    </div>
+                    <div class="form-options">
+                        <label class="checkbox">
+                            <input type="checkbox" id="rememberMe">
+                            <span>Remember me</span>
+                        </label>
+                        <a href="#" class="link">Forgot password?</a>
+                    </div>
+                    <button type="submit" class="btn-primary btn-full">Sign In</button>
+                </form>
+                <div class="auth-footer">
+                    <p>Don't have an account? <a href="#" id="showSignup" class="link">Sign up free</a></p>
+                </div>
+            </div>
+            <div class="auth-decoration">
+                <div class="decoration-circle"></div>
+                <div class="decoration-circle"></div>
+                <div class="decoration-circle"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Signup Page -->
+    <div id="signupPage" class="auth-page" style="display: none;">
+        <div class="auth-container">
+            <div class="auth-card">
+                <div class="auth-header">
+                    <div class="logo-large">
+                        <span class="logo-icon">💬</span>
+                        <h1>FeedbackHub</h1>
+                    </div>
+                    <p class="auth-subtitle">Create your business account in seconds</p>
+                </div>
+                <form id="signupForm" class="auth-form">
+                    <div class="form-group">
+                        <label for="businessName">Business Name</label>
+                        <input type="text" id="businessName" placeholder="Your Business Ltd" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupEmail">Email Address</label>
+                        <input type="email" id="signupEmail" placeholder="business@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phoneNumber">Phone Number</label>
+                        <input type="tel" id="phoneNumber" placeholder="+231 XXX XXXX" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupPassword">Password</label>
+                        <input type="password" id="signupPassword" placeholder="Minimum 8 characters" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="checkbox">
+                            <input type="checkbox" id="agreeTerms" required>
+                            <span>I agree to the <a href="#" class="link">Terms of Service</a> and <a href="#" class="link">Privacy Policy</a></span>
+                        </label>
+                    </div>
+                    <button type="submit" class="btn-primary btn-full">Create Account</button>
+                </form>
+                <div class="auth-footer">
+                    <p>Already have an account? <a href="#" id="showLogin" class="link">Sign in</a></p>
+                </div>
+            </div>
+            <div class="auth-decoration">
+                <div class="decoration-circle"></div>
+                <div class="decoration-circle"></div>
+                <div class="decoration-circle"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dashboard -->
+    <div id="dashboard" style="display: none;">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <span class="logo-icon">💬</span>
+                    <span class="logo-text">FeedbackHub</span>
+                </div>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active" data-page="overview">
+                    <span class="nav-icon">📊</span>
+                    <span>Overview</span>
+                </a>
+                <a href="#" class="nav-item" data-page="feedback">
+                    <span class="nav-icon">💬</span>
+                    <span>Feedback</span>
+                    <span class="badge">12</span>
+                </a>
+                <a href="#" class="nav-item" data-page="analytics">
+                    <span class="nav-icon">📈</span>
+                    <span>Analytics</span>
+                </a>
+                <a href="#" class="nav-item" data-page="customers">
+                    <span class="nav-icon">👥</span>
+                    <span>Customers</span>
+                </a>
+                <a href="#" class="nav-item" data-page="settings">
+                    <span class="nav-icon">⚙️</span>
+                    <span>Settings</span>
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <div class="user-avatar">B</div>
+                    <div class="user-info">
+                        <div class="user-name" id="sidebarBusinessName">Business Name</div>
+                        <div class="user-email" id="sidebarEmail">email@example.com</div>
+                    </div>
+                </div>
+                <button class="btn-logout" id="logoutBtn">
+                    <span>🚪</span>
+                    Logout
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Topbar -->
+            <header class="topbar">
+                <div class="topbar-left">
+                    <h2 id="pageTitle">Overview</h2>
+                </div>
+                <div class="topbar-right">
+                    <div class="search-box">
+                        <input type="text" placeholder="Search feedback...">
+                        <span class="search-icon">🔍</span>
+                    </div>
+                    <button class="btn-icon notification-btn">
+                        <span>🔔</span>
+                        <span class="notification-dot"></span>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Overview Page -->
+            <div id="overviewPage" class="page-content">
+                <!-- Stats Cards -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <span class="stat-label">Total Feedback</span>
+                            <span class="stat-icon">💬</span>
+                        </div>
+                        <div class="stat-value">247</div>
+                        <div class="stat-change positive">+12% from last month</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <span class="stat-label">Pending Review</span>
+                            <span class="stat-icon">⏳</span>
+                        </div>
+                        <div class="stat-value">12</div>
+                        <div class="stat-change warning">Action required</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <span class="stat-label">Response Rate</span>
+                            <span class="stat-icon">✅</span>
+                        </div>
+                        <div class="stat-value">95%</div>
+                        <div class="stat-change positive">+5% from last month</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <span class="stat-label">Avg. Rating</span>
+                            <span class="stat-icon">⭐</span>
+                        </div>
+                        <div class="stat-value">4.7</div>
+                        <div class="stat-change positive">Excellent</div>
+                    </div>
+                </div>
+
+                <!-- Recent Feedback -->
+                <div class="content-section">
+                    <div class="section-header">
+                        <h3>Recent Feedback</h3>
+                        <button class="btn-secondary">View All</button>
+                    </div>
+                    <div class="feedback-list" id="recentFeedbackList">
+                        <!-- Will be populated by JS -->
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="content-section">
+                    <div class="section-header">
+                        <h3>Quick Actions</h3>
+                    </div>
+                    <div class="quick-actions">
+                        <button class="action-card">
+                            <span class="action-icon">📱</span>
+                            <span class="action-text">Get QR Code</span>
+                        </button>
+                        <button class="action-card">
+                            <span class="action-icon">📧</span>
+                            <span class="action-text">Email Campaign</span>
+                        </button>
+                        <button class="action-card">
+                            <span class="action-icon">📊</span>
+                            <span class="action-text">Export Report</span>
+                        </button>
+                        <button class="action-card">
+                            <span class="action-icon">👥</span>
+                            <span class="action-text">Invite Team</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feedback Page -->
+            <div id="feedbackPage" class="page-content" style="display: none;">
+                <div class="page-header">
+                    <div class="filter-tabs">
+                        <button class="filter-tab active" data-filter="all">All</button>
+                        <button class="filter-tab" data-filter="pending">Pending</button>
+                        <button class="filter-tab" data-filter="reviewed">Reviewed</button>
+                        <button class="filter-tab" data-filter="archived">Archived</button>
+                    </div>
+                    <button class="btn-primary">
+                        <span>📥</span> Export
+                    </button>
+                </div>
+                <div class="feedback-grid" id="allFeedbackList">
+                    <!-- Will be populated by JS -->
+                </div>
+            </div>
+
+            <!-- Settings Page -->
+            <div id="settingsPage" class="page-content" style="display: none;">
+                <div class="settings-container">
+                    <div class="settings-nav">
+                        <button class="settings-tab active" data-tab="business">Business Profile</button>
+                        <button class="settings-tab" data-tab="feedback">Feedback Settings</button>
+                        <button class="settings-tab" data-tab="notifications">Notifications</button>
+                        <button class="settings-tab" data-tab="integrations">Integrations</button>
+                    </div>
+                    <div class="settings-content">
+                        <div id="businessTab" class="settings-panel active">
+                            <h3>Business Profile</h3>
+                            <form class="settings-form">
+                                <div class="form-group">
+                                    <label>Business Name</label>
+                                    <input type="text" id="settingsBusinessName" placeholder="Your Business Ltd">
+                                </div>
+                                <div class="form-group">
+                                    <label>Email</label>
+                                    <input type="email" id="settingsEmail" placeholder="business@example.com">
+                                </div>
+                                <div class="form-group">
+                                    <label>Phone</label>
+                                    <input type="tel" id="settingsPhone" placeholder="+231 XXX XXXX">
+                                </div>
+                                <div class="form-group">
+                                    <label>Address</label>
+                                    <textarea id="settingsAddress" rows="3" placeholder="Business address in Liberia"></textarea>
+                                </div>
+                                <button type="submit" class="btn-primary">Save Changes</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Feedback Detail Modal -->
+    <div id="feedbackModal" class="modal" style="display: none;">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Feedback Details</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body" id="feedbackDetailContent">
+                <!-- Will be populated by JS -->
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
