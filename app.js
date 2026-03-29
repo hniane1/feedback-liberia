@@ -1,92 +1,124 @@
-// Mock Data Storage
-const STORAGE_KEYS = {
+// Storage keys
+const STORAGE = {
     USER: 'feedbackhub_user',
     BUSINESSES: 'feedbackhub_businesses',
     FEEDBACK: 'feedbackhub_feedback'
 };
 
 // Initialize mock data
-function initializeMockData() {
-    if (!localStorage.getItem(STORAGE_KEYS.BUSINESSES)) {
-        localStorage.setItem(STORAGE_KEYS.BUSINESSES, JSON.stringify([]));
+function initMockData() {
+    if (!localStorage.getItem(STORAGE.BUSINESSES)) {
+        localStorage.setItem(STORAGE.BUSINESSES, JSON.stringify([]));
     }
     
-    if (!localStorage.getItem(STORAGE_KEYS.FEEDBACK)) {
+    if (!localStorage.getItem(STORAGE.FEEDBACK)) {
         const mockFeedback = [
             {
                 id: 1,
                 customerId: 'C001',
-                customerName: 'John Doe',
+                customerName: 'John Mensah',
                 businessId: null,
-                message: 'Great service! The staff was very friendly and helpful. Will definitely come back again.',
+                message: 'Excellent service! The team was professional and resolved my issue quickly. Very satisfied with the experience.',
                 rating: 5,
+                sentiment: 'positive',
                 status: 'pending',
-                attachments: ['📷 image', '🎤 audio'],
-                timestamp: new Date(Date.now() - 2 * 60 * 60 * 1000).toISOString()
+                priority: 'normal',
+                attachments: [{ type: 'image', count: 2 }, { type: 'audio', count: 1 }],
+                timestamp: new Date(Date.now() - 1.5 * 60 * 60 * 1000).toISOString(),
+                tags: ['service', 'support']
             },
             {
                 id: 2,
                 customerId: 'C002',
-                customerName: 'Mary Johnson',
+                customerName: 'Grace Kpoto',
                 businessId: null,
-                message: 'The product quality is excellent, but delivery took longer than expected.',
-                rating: 4,
+                message: 'Product quality is good, but delivery was delayed by 3 days. Would appreciate better communication about shipping status.',
+                rating: 3,
+                sentiment: 'neutral',
                 status: 'reviewed',
-                attachments: ['📷 image'],
-                timestamp: new Date(Date.now() - 5 * 60 * 60 * 1000).toISOString()
+                priority: 'normal',
+                attachments: [{ type: 'image', count: 1 }],
+                timestamp: new Date(Date.now() - 5 * 60 * 60 * 1000).toISOString(),
+                tags: ['delivery', 'product']
             },
             {
                 id: 3,
                 customerId: 'C003',
-                customerName: 'Samuel Kpoto',
+                customerName: 'Samuel Williams',
                 businessId: null,
-                message: 'Very satisfied with my purchase. Keep up the good work!',
+                message: 'Outstanding! This is exactly what I was looking for. The quality exceeded my expectations. Will definitely recommend to friends.',
                 rating: 5,
+                sentiment: 'positive',
                 status: 'reviewed',
-                attachments: ['🎤 audio', '🎥 video'],
-                timestamp: new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString()
+                priority: 'normal',
+                attachments: [{ type: 'video', count: 1 }],
+                timestamp: new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString(),
+                tags: ['product', 'quality']
             },
             {
                 id: 4,
                 customerId: 'C004',
-                customerName: 'Grace Williams',
+                customerName: 'Patience Gbessay',
                 businessId: null,
-                message: 'Had an issue with billing but customer service resolved it quickly. Thank you!',
+                message: 'Had billing issues but customer service was very helpful. They fixed everything within an hour. Thank you!',
                 rating: 4,
+                sentiment: 'positive',
                 status: 'pending',
-                attachments: ['📷 image'],
-                timestamp: new Date(Date.now() - 3 * 60 * 60 * 1000).toISOString()
+                priority: 'high',
+                attachments: [{ type: 'image', count: 1 }],
+                timestamp: new Date(Date.now() - 3 * 60 * 60 * 1000).toISOString(),
+                tags: ['billing', 'support']
             },
             {
                 id: 5,
                 customerId: 'C005',
                 customerName: 'Mohammed Kamara',
                 businessId: null,
-                message: 'Excellent experience overall. Professional service and quality products.',
-                rating: 5,
-                status: 'reviewed',
-                attachments: [],
-                timestamp: new Date(Date.now() - 48 * 60 * 60 * 1000).toISOString()
+                message: 'Very disappointed. Product arrived damaged and customer service was unresponsive. Not what I expected at all.',
+                rating: 1,
+                sentiment: 'negative',
+                status: 'pending',
+                priority: 'urgent',
+                attachments: [{ type: 'image', count: 3 }, { type: 'audio', count: 1 }],
+                timestamp: new Date(Date.now() - 0.5 * 60 * 60 * 1000).toISOString(),
+                tags: ['product', 'support', 'urgent']
             },
             {
                 id: 6,
                 customerId: 'C006',
-                customerName: 'Patience Gbessay',
+                customerName: 'Mary Johnson',
                 businessId: null,
-                message: 'The new location is much more convenient. Love the improvements!',
+                message: 'Love the new location! Much more spacious and convenient parking. The staff is friendly and helpful.',
                 rating: 5,
+                sentiment: 'positive',
                 status: 'pending',
-                attachments: ['🎥 video'],
-                timestamp: new Date(Date.now() - 1 * 60 * 60 * 1000).toISOString()
+                priority: 'normal',
+                attachments: [{ type: 'image', count: 2 }],
+                timestamp: new Date(Date.now() - 2 * 60 * 60 * 1000).toISOString(),
+                tags: ['location', 'service']
+            },
+            {
+                id: 7,
+                customerId: 'C007',
+                customerName: 'Emmanuel Kofi',
+                businessId: null,
+                message: 'Good value for money. The product works as described. Delivery was on time.',
+                rating: 4,
+                sentiment: 'positive',
+                status: 'reviewed',
+                priority: 'normal',
+                attachments: [],
+                timestamp: new Date(Date.now() - 48 * 60 * 60 * 1000).toISOString(),
+                tags: ['product', 'delivery']
             }
         ];
-        localStorage.setItem(STORAGE_KEYS.FEEDBACK, JSON.stringify(mockFeedback));
+        localStorage.setItem(STORAGE.FEEDBACK, JSON.stringify(mockFeedback));
     }
 }
 
-// Authentication Functions
+// Authentication
 function login(email, password) {
-    const businesses = JSON.parse(localStorage.getItem(STORAGE_KEYS.BUSINESSES) || '[]');
+    const businesses = JSON.parse(localStorage.getItem(STORAGE.BUSINESSES) || '[]');
     const business = businesses.find(b => b.email === email && b.password === password);
     
     if (business) {
@@ -97,7 +129,7 @@ function login(email, password) {
             phone: business.phone,
             loginTime: new Date().toISOString()
         };
-        localStorage.setItem(STORAGE_KEYS.USER, JSON.stringify(user));
+        localStorage.setItem(STORAGE.USER, JSON.stringify(user));
         return { success: true, user };
     }
     
@@ -105,9 +137,8 @@ function login(email, password) {
 }
 
 function signup(businessName, email, phone, password) {
-    const businesses = JSON.parse(localStorage.getItem(STORAGE_KEYS.BUSINESSES) || '[]');
+    const businesses = JSON.parse(localStorage.getItem(STORAGE.BUSINESSES) || '[]');
     
-    // Check if email already exists
     if (businesses.find(b => b.email === email)) {
         return { success: false, error: 'Email already registered' };
     }
@@ -117,15 +148,14 @@ function signup(businessName, email, phone, password) {
         businessName,
         email,
         phone,
-        password, // In production, NEVER store plain text passwords!
+        password,
         createdAt: new Date().toISOString(),
         address: ''
     };
     
     businesses.push(newBusiness);
-    localStorage.setItem(STORAGE_KEYS.BUSINESSES, JSON.stringify(businesses));
+    localStorage.setItem(STORAGE.BUSINESSES, JSON.stringify(businesses));
     
-    // Auto login after signup
     const user = {
         id: newBusiness.id,
         businessName,
@@ -133,22 +163,22 @@ function signup(businessName, email, phone, password) {
         phone,
         loginTime: new Date().toISOString()
     };
-    localStorage.setItem(STORAGE_KEYS.USER, JSON.stringify(user));
+    localStorage.setItem(STORAGE.USER, JSON.stringify(user));
     
     return { success: true, user };
 }
 
 function logout() {
-    localStorage.removeItem(STORAGE_KEYS.USER);
+    localStorage.removeItem(STORAGE.USER);
     showPage('login');
 }
 
 function getCurrentUser() {
-    const userStr = localStorage.getItem(STORAGE_KEYS.USER);
+    const userStr = localStorage.getItem(STORAGE.USER);
     return userStr ? JSON.parse(userStr) : null;
 }
 
-// UI Functions
+// UI Navigation
 function showPage(page) {
     document.getElementById('loginPage').style.display = 'none';
     document.getElementById('signupPage').style.display = 'none';
@@ -171,12 +201,11 @@ function loadDashboard() {
         return;
     }
     
-    // Update sidebar user info
-    document.getElementById('sidebarBusinessName').textContent = user.businessName;
-    document.getElementById('sidebarEmail').textContent = user.email;
-    document.querySelector('.user-avatar').textContent = user.businessName.charAt(0).toUpperCase();
+    // Update user info
+    document.getElementById('userName').textContent = user.businessName;
+    document.getElementById('userAvatar').textContent = user.businessName.charAt(0).toUpperCase();
     
-    // Load initial page (overview)
+    // Load overview page
     showDashboardPage('overview');
 }
 
@@ -184,57 +213,38 @@ function showDashboardPage(page) {
     // Hide all pages
     document.querySelectorAll('.page-content').forEach(p => p.style.display = 'none');
     
-    // Update nav items
+    // Update nav
     document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
     
     // Show selected page
-    const pageMap = {
+    const pageIds = {
         'overview': 'overviewPage',
         'feedback': 'feedbackPage',
         'settings': 'settingsPage'
     };
     
-    const pageId = pageMap[page];
+    const pageId = pageIds[page];
     if (pageId) {
         document.getElementById(pageId).style.display = 'block';
     }
     
     // Update active nav
     const navItem = document.querySelector(`[data-page="${page}"]`);
-    if (navItem) {
-        navItem.classList.add('active');
-    }
+    if (navItem) navItem.classList.add('active');
     
-    // Update page title
-    const titles = {
-        'overview': 'Overview',
-        'feedback': 'Feedback',
-        'analytics': 'Analytics',
-        'customers': 'Customers',
-        'settings': 'Settings'
-    };
-    document.getElementById('pageTitle').textContent = titles[page] || 'Dashboard';
-    
-    // Load page data
-    if (page === 'overview') {
-        loadOverview();
-    } else if (page === 'feedback') {
-        loadFeedback();
-    } else if (page === 'settings') {
-        loadSettings();
-    }
+    // Load data
+    if (page === 'overview') loadOverview();
+    else if (page === 'feedback') loadFeedback();
+    else if (page === 'settings') loadSettings();
 }
 
 function loadOverview() {
     const feedback = getFeedback();
-    const recentFeedback = feedback.slice(0, 3);
+    const recent = feedback.slice(0, 4);
     
-    const recentList = document.getElementById('recentFeedbackList');
-    recentList.innerHTML = '';
-    
-    recentFeedback.forEach(item => {
-        recentList.appendChild(createFeedbackElement(item));
-    });
+    const list = document.getElementById('recentFeedbackList');
+    list.innerHTML = '';
+    recent.forEach(item => list.appendChild(createFeedbackElement(item)));
 }
 
 function loadFeedback(filter = 'all') {
@@ -244,19 +254,16 @@ function loadFeedback(filter = 'all') {
         feedback = feedback.filter(f => f.status === filter);
     }
     
-    const feedbackList = document.getElementById('allFeedbackList');
-    feedbackList.innerHTML = '';
-    
-    feedback.forEach(item => {
-        feedbackList.appendChild(createFeedbackElement(item));
-    });
+    const list = document.getElementById('allFeedbackList');
+    list.innerHTML = '';
+    feedback.forEach(item => list.appendChild(createFeedbackElement(item, true)));
 }
 
 function loadSettings() {
     const user = getCurrentUser();
     if (!user) return;
     
-    const businesses = JSON.parse(localStorage.getItem(STORAGE_KEYS.BUSINESSES) || '[]');
+    const businesses = JSON.parse(localStorage.getItem(STORAGE.BUSINESSES) || '[]');
     const business = businesses.find(b => b.id === user.id);
     
     if (business) {
@@ -268,19 +275,25 @@ function loadSettings() {
 }
 
 function getFeedback() {
-    const feedback = JSON.parse(localStorage.getItem(STORAGE_KEYS.FEEDBACK) || '[]');
-    // Sort by timestamp, newest first
+    const feedback = JSON.parse(localStorage.getItem(STORAGE.FEEDBACK) || '[]');
     return feedback.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
 }
 
-function createFeedbackElement(item) {
+function createFeedbackElement(item, showSentiment = false) {
     const div = document.createElement('div');
     div.className = 'feedback-item';
-    div.onclick = () => showFeedbackDetail(item);
+    div.onclick = () => showFeedbackModal(item);
     
     const timeAgo = formatTimeAgo(new Date(item.timestamp));
-    const statusClass = item.status === 'pending' ? 'pending' : 'reviewed';
-    const statusText = item.status === 'pending' ? 'Pending' : 'Reviewed';
+    const stars = '⭐'.repeat(item.rating);
+    
+    const attachmentsHtml = item.attachments.map(att => {
+        const icons = { image: '📷', audio: '🎤', video: '🎥' };
+        return `<span class="attachment-badge">${icons[att.type]} ${att.count}</span>`;
+    }).join('');
+    
+    const sentimentHtml = showSentiment ? 
+        `<span class="sentiment-badge ${item.sentiment}">${item.sentiment}</span>` : '';
     
     div.innerHTML = `
         <div class="feedback-avatar">${item.customerName.charAt(0)}</div>
@@ -290,11 +303,15 @@ function createFeedbackElement(item) {
                     <div class="feedback-name">${item.customerName}</div>
                     <div class="feedback-time">${timeAgo}</div>
                 </div>
-                <span class="feedback-status ${statusClass}">${statusText}</span>
+                <div class="feedback-badges">
+                    ${sentimentHtml}
+                    <span class="feedback-status ${item.status}">${item.status === 'pending' ? 'Pending' : 'Reviewed'}</span>
+                </div>
             </div>
             <div class="feedback-text">${item.message}</div>
-            <div class="feedback-attachments">
-                ${item.attachments.map(att => `<span class="attachment-badge">${att}</span>`).join('')}
+            <div class="feedback-footer">
+                <div class="feedback-rating">${stars}</div>
+                <div class="feedback-attachments">${attachmentsHtml}</div>
             </div>
         </div>
     `;
@@ -305,79 +322,76 @@ function createFeedbackElement(item) {
 function formatTimeAgo(date) {
     const seconds = Math.floor((new Date() - date) / 1000);
     
-    const intervals = {
-        year: 31536000,
-        month: 2592000,
-        week: 604800,
-        day: 86400,
-        hour: 3600,
-        minute: 60
-    };
-    
-    for (const [unit, secondsInUnit] of Object.entries(intervals)) {
-        const interval = Math.floor(seconds / secondsInUnit);
-        if (interval >= 1) {
-            return `${interval} ${unit}${interval > 1 ? 's' : ''} ago`;
-        }
-    }
-    
-    return 'Just now';
+    if (seconds < 60) return 'Just now';
+    if (seconds < 3600) return `${Math.floor(seconds / 60)}m ago`;
+    if (seconds < 86400) return `${Math.floor(seconds / 3600)}h ago`;
+    if (seconds < 604800) return `${Math.floor(seconds / 86400)}d ago`;
+    return date.toLocaleDateString();
 }
 
-function showFeedbackDetail(item) {
+function showFeedbackModal(item) {
     const modal = document.getElementById('feedbackModal');
     const content = document.getElementById('feedbackDetailContent');
     
-    const rating = '⭐'.repeat(item.rating);
+    const stars = '⭐'.repeat(item.rating);
+    const attachmentsHtml = item.attachments.map(att => {
+        const icons = { image: '📷', audio: '🎤', video: '🎥' };
+        return `<span class="attachment-badge">${icons[att.type]} ${att.count} ${att.type}${att.count > 1 ? 's' : ''}</span>`;
+    }).join('');
     
     content.innerHTML = `
-        <div style="margin-bottom: 1.5rem;">
-            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-                <div class="feedback-avatar" style="width: 64px; height: 64px; font-size: 1.5rem;">${item.customerName.charAt(0)}</div>
-                <div>
-                    <div style="font-weight: 700; font-size: 1.25rem; margin-bottom: 0.25rem;">${item.customerName}</div>
-                    <div style="color: var(--gray-500);">${new Date(item.timestamp).toLocaleString()}</div>
-                    <div style="font-size: 1.25rem; margin-top: 0.25rem;">${rating}</div>
+        <div style="margin-bottom: 2rem;">
+            <div style="display: flex; gap: 1rem; align-items: start; margin-bottom: 1.5rem;">
+                <div class="feedback-avatar" style="width: 64px; height: 64px; font-size: 1.75rem;">
+                    ${item.customerName.charAt(0)}
+                </div>
+                <div style="flex: 1;">
+                    <div style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.25rem;">${item.customerName}</div>
+                    <div style="color: var(--gray-500); font-size: 0.875rem; margin-bottom: 0.5rem;">
+                        ${new Date(item.timestamp).toLocaleString()}
+                    </div>
+                    <div style="display: flex; gap: 0.5rem; align-items: center;">
+                        <div style="font-size: 1.25rem;">${stars}</div>
+                        <span class="sentiment-badge ${item.sentiment}">${item.sentiment}</span>
+                    </div>
                 </div>
             </div>
         </div>
         
         <div style="margin-bottom: 1.5rem;">
-            <h4 style="margin-bottom: 0.75rem; color: var(--gray-700);">Message</h4>
-            <p style="line-height: 1.6; color: var(--gray-800);">${item.message}</p>
+            <h4 style="font-size: 0.875rem; font-weight: 700; color: var(--gray-500); margin-bottom: 0.75rem; text-transform: uppercase;">Message</h4>
+            <p style="line-height: 1.7; color: var(--gray-700); font-size: 1rem;">${item.message}</p>
         </div>
         
         ${item.attachments.length > 0 ? `
             <div style="margin-bottom: 1.5rem;">
-                <h4 style="margin-bottom: 0.75rem; color: var(--gray-700);">Attachments</h4>
-                <div class="feedback-attachments">
-                    ${item.attachments.map(att => `<span class="attachment-badge">${att}</span>`).join('')}
-                </div>
+                <h4 style="font-size: 0.875rem; font-weight: 700; color: var(--gray-500); margin-bottom: 0.75rem; text-transform: uppercase;">Attachments</h4>
+                <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">${attachmentsHtml}</div>
             </div>
         ` : ''}
         
-        <div style="display: flex; gap: 1rem;">
-            <button class="btn-primary" onclick="markAsReviewed(${item.id})">
-                ${item.status === 'pending' ? 'Mark as Reviewed' : 'Reviewed ✓'}
+        <div style="display: flex; gap: 0.75rem; padding-top: 1.5rem; border-top: 1px solid var(--border);">
+            <button class="btn-primary" onclick="markAsReviewed(${item.id})" ${item.status === 'reviewed' ? 'disabled' : ''}>
+                ${item.status === 'pending' ? 'Mark as Reviewed' : '✓ Reviewed'}
             </button>
-            <button class="btn-secondary" onclick="closeModal()">Close</button>
+            <button class="btn-ghost" onclick="closeModal()">Close</button>
         </div>
     `;
     
-    modal.style.display = 'flex';
+    modal.classList.add('show');
 }
 
 function closeModal() {
-    document.getElementById('feedbackModal').style.display = 'none';
+    document.getElementById('feedbackModal').classList.remove('show');
 }
 
 function markAsReviewed(feedbackId) {
-    const feedback = JSON.parse(localStorage.getItem(STORAGE_KEYS.FEEDBACK) || '[]');
+    const feedback = JSON.parse(localStorage.getItem(STORAGE.FEEDBACK) || '[]');
     const item = feedback.find(f => f.id === feedbackId);
     
     if (item) {
         item.status = 'reviewed';
-        localStorage.setItem(STORAGE_KEYS.FEEDBACK, JSON.stringify(feedback));
+        localStorage.setItem(STORAGE.FEEDBACK, JSON.stringify(feedback));
         closeModal();
         loadOverview();
         loadFeedback();
@@ -394,8 +408,8 @@ function showNotification(message, type = 'success') {
         background: ${type === 'success' ? 'var(--secondary)' : 'var(--danger)'};
         color: white;
         padding: 1rem 1.5rem;
-        border-radius: var(--radius-md);
-        box-shadow: var(--shadow-lg);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-xl);
         z-index: 10000;
         font-weight: 600;
         animation: slideIn 0.3s ease;
@@ -404,24 +418,19 @@ function showNotification(message, type = 'success') {
     document.body.appendChild(notification);
     
     setTimeout(() => {
-        notification.style.animation = 'slideOut 0.3s ease';
+        notification.style.opacity = '0';
         setTimeout(() => notification.remove(), 300);
     }, 3000);
 }
 
 // Event Listeners
 document.addEventListener('DOMContentLoaded', () => {
-    initializeMockData();
+    initMockData();
     
-    // Check if user is logged in
     const user = getCurrentUser();
-    if (user) {
-        showPage('dashboard');
-    } else {
-        showPage('login');
-    }
+    showPage(user ? 'dashboard' : 'login');
     
-    // Login form
+    // Login
     document.getElementById('loginForm').addEventListener('submit', (e) => {
         e.preventDefault();
         const email = document.getElementById('loginEmail').value;
@@ -430,13 +439,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const result = login(email, password);
         if (result.success) {
             showPage('dashboard');
-            showNotification('Welcome back!', 'success');
+            showNotification('Welcome back!');
         } else {
             showNotification(result.error, 'error');
         }
     });
     
-    // Signup form
+    // Signup
     document.getElementById('signupForm').addEventListener('submit', (e) => {
         e.preventDefault();
         const businessName = document.getElementById('businessName').value;
@@ -452,13 +461,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const result = signup(businessName, email, phone, password);
         if (result.success) {
             showPage('dashboard');
-            showNotification('Account created successfully!', 'success');
+            showNotification('Account created successfully!');
         } else {
             showNotification(result.error, 'error');
         }
     });
     
-    // Toggle between login and signup
+    // Auth toggles
     document.getElementById('showSignup').addEventListener('click', (e) => {
         e.preventDefault();
         showPage('signup');
@@ -469,7 +478,7 @@ document.addEventListener('DOMContentLoaded', () => {
         showPage('login');
     });
     
-    // Logout button
+    // Logout
     document.getElementById('logoutBtn').addEventListener('click', logout);
     
     // Navigation
@@ -477,30 +486,28 @@ document.addEventListener('DOMContentLoaded', () => {
         item.addEventListener('click', (e) => {
             e.preventDefault();
             const page = item.dataset.page;
-            if (page) {
-                showDashboardPage(page);
-            }
+            if (page) showDashboardPage(page);
         });
     });
     
-    // Filter tabs
-    document.querySelectorAll('.filter-tab').forEach(tab => {
-        tab.addEventListener('click', () => {
-            document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
-            tab.classList.add('active');
-            loadFeedback(tab.dataset.filter);
+    // Filter chips
+    document.querySelectorAll('.filter-chip').forEach(chip => {
+        chip.addEventListener('click', () => {
+            document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+            chip.classList.add('active');
+            loadFeedback(chip.dataset.filter);
         });
     });
     
-    // Modal close
+    // Modal
     document.querySelector('.modal-close')?.addEventListener('click', closeModal);
     document.querySelector('.modal-overlay')?.addEventListener('click', closeModal);
     
     // Settings tabs
-    document.querySelectorAll('.settings-tab').forEach(tab => {
+    document.querySelectorAll('.settings-nav-item').forEach(tab => {
         tab.addEventListener('click', () => {
             const tabName = tab.dataset.tab;
-            document.querySelectorAll('.settings-tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.settings-nav-item').forEach(t => t.classList.remove('active'));
             document.querySelectorAll('.settings-panel').forEach(p => p.classList.remove('active'));
             tab.classList.add('active');
             document.getElementById(tabName + 'Tab')?.classList.add('active');
@@ -514,52 +521,34 @@ document.addEventListener('DOMContentLoaded', () => {
         const user = getCurrentUser();
         if (!user) return;
         
-        const businesses = JSON.parse(localStorage.getItem(STORAGE_KEYS.BUSINESSES) || '[]');
-        const businessIndex = businesses.findIndex(b => b.id === user.id);
+        const businesses = JSON.parse(localStorage.getItem(STORAGE.BUSINESSES) || '[]');
+        const idx = businesses.findIndex(b => b.id === user.id);
         
-        if (businessIndex !== -1) {
-            businesses[businessIndex].businessName = document.getElementById('settingsBusinessName').value;
-            businesses[businessIndex].email = document.getElementById('settingsEmail').value;
-            businesses[businessIndex].phone = document.getElementById('settingsPhone').value;
-            businesses[businessIndex].address = document.getElementById('settingsAddress').value;
+        if (idx !== -1) {
+            businesses[idx].businessName = document.getElementById('settingsBusinessName').value;
+            businesses[idx].email = document.getElementById('settingsEmail').value;
+            businesses[idx].phone = document.getElementById('settingsPhone').value;
+            businesses[idx].address = document.getElementById('settingsAddress').value;
             
-            localStorage.setItem(STORAGE_KEYS.BUSINESSES, JSON.stringify(businesses));
+            localStorage.setItem(STORAGE.BUSINESSES, JSON.stringify(businesses));
             
-            // Update current user
-            user.businessName = businesses[businessIndex].businessName;
-            user.email = businesses[businessIndex].email;
-            user.phone = businesses[businessIndex].phone;
-            localStorage.setItem(STORAGE_KEYS.USER, JSON.stringify(user));
+            user.businessName = businesses[idx].businessName;
+            user.email = businesses[idx].email;
+            user.phone = businesses[idx].phone;
+            localStorage.setItem(STORAGE.USER, JSON.stringify(user));
             
             loadDashboard();
-            showNotification('Settings saved successfully!', 'success');
+            showNotification('Settings saved!');
         }
     });
 });
 
-// Add CSS animations
+// CSS animation
 const style = document.createElement('style');
 style.textContent = `
     @keyframes slideIn {
-        from {
-            transform: translateX(100%);
-            opacity: 0;
-        }
-        to {
-            transform: translateX(0);
-            opacity: 1;
-        }
-    }
-    
-    @keyframes slideOut {
-        from {
-            transform: translateX(0);
-            opacity: 1;
-        }
-        to {
-            transform: translateX(100%);
-            opacity: 0;
-        }
+        from { transform: translateX(100%); opacity: 0; }
+        to { transform: translateX(0); opacity: 1; }
     }
 `;
 document.head.appendChild(style);

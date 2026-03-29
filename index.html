@@ -3,98 +3,129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FeedbackHub - Business Dashboard</title>
+    <title>FeedbackHub - Customer Feedback Dashboard</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Login Page -->
     <div id="loginPage" class="auth-page">
-        <div class="auth-container">
-            <div class="auth-card">
-                <div class="auth-header">
-                    <div class="logo-large">
-                        <span class="logo-icon">💬</span>
-                        <h1>FeedbackHub</h1>
-                    </div>
-                    <p class="auth-subtitle">Welcome back! Sign in to your business dashboard</p>
+        <div class="auth-split">
+            <div class="auth-left">
+                <div class="auth-brand">
+                    <div class="brand-icon">💬</div>
+                    <h1>FeedbackHub</h1>
+                    <p>Collect and manage customer feedback seamlessly</p>
                 </div>
-                <form id="loginForm" class="auth-form">
-                    <div class="form-group">
-                        <label for="loginEmail">Email Address</label>
-                        <input type="email" id="loginEmail" placeholder="business@example.com" required>
+                <div class="auth-features">
+                    <div class="feature-item">
+                        <span class="feature-icon">✨</span>
+                        <div>
+                            <h3>Real-time Feedback</h3>
+                            <p>Get instant notifications when customers share their thoughts</p>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="loginPassword">Password</label>
-                        <input type="password" id="loginPassword" placeholder="Enter your password" required>
+                    <div class="feature-item">
+                        <span class="feature-icon">📊</span>
+                        <div>
+                            <h3>Powerful Analytics</h3>
+                            <p>Track trends and measure customer satisfaction over time</p>
+                        </div>
                     </div>
-                    <div class="form-options">
-                        <label class="checkbox">
-                            <input type="checkbox" id="rememberMe">
-                            <span>Remember me</span>
-                        </label>
-                        <a href="#" class="link">Forgot password?</a>
+                    <div class="feature-item">
+                        <span class="feature-icon">🎯</span>
+                        <div>
+                            <h3>Smart Organization</h3>
+                            <p>Filter, tag, and prioritize feedback effortlessly</p>
+                        </div>
                     </div>
-                    <button type="submit" class="btn-primary btn-full">Sign In</button>
-                </form>
-                <div class="auth-footer">
-                    <p>Don't have an account? <a href="#" id="showSignup" class="link">Sign up free</a></p>
                 </div>
             </div>
-            <div class="auth-decoration">
-                <div class="decoration-circle"></div>
-                <div class="decoration-circle"></div>
-                <div class="decoration-circle"></div>
+            <div class="auth-right">
+                <div class="auth-card">
+                    <h2>Welcome back</h2>
+                    <p class="auth-subtitle">Sign in to your account to continue</p>
+                    <form id="loginForm" class="auth-form">
+                        <div class="form-group">
+                            <label for="loginEmail">Email</label>
+                            <input type="email" id="loginEmail" placeholder="you@business.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="loginPassword">Password</label>
+                            <input type="password" id="loginPassword" placeholder="••••••••" required>
+                        </div>
+                        <div class="form-row">
+                            <label class="checkbox">
+                                <input type="checkbox" id="rememberMe">
+                                <span>Remember me</span>
+                            </label>
+                            <a href="#" class="link-primary">Forgot password?</a>
+                        </div>
+                        <button type="submit" class="btn-primary btn-large">Sign in</button>
+                    </form>
+                    <div class="auth-divider">
+                        <span>Don't have an account?</span>
+                    </div>
+                    <button id="showSignup" class="btn-secondary btn-large">Create free account</button>
+                </div>
             </div>
         </div>
     </div>
 
     <!-- Signup Page -->
     <div id="signupPage" class="auth-page" style="display: none;">
-        <div class="auth-container">
-            <div class="auth-card">
-                <div class="auth-header">
-                    <div class="logo-large">
-                        <span class="logo-icon">💬</span>
-                        <h1>FeedbackHub</h1>
-                    </div>
-                    <p class="auth-subtitle">Create your business account in seconds</p>
+        <div class="auth-split">
+            <div class="auth-left">
+                <div class="auth-brand">
+                    <div class="brand-icon">💬</div>
+                    <h1>FeedbackHub</h1>
+                    <p>Start collecting valuable customer feedback today</p>
                 </div>
-                <form id="signupForm" class="auth-form">
-                    <div class="form-group">
-                        <label for="businessName">Business Name</label>
-                        <input type="text" id="businessName" placeholder="Your Business Ltd" required>
+                <div class="auth-stats">
+                    <div class="stat-item">
+                        <div class="stat-value">500+</div>
+                        <div class="stat-label">Businesses</div>
                     </div>
-                    <div class="form-group">
-                        <label for="signupEmail">Email Address</label>
-                        <input type="email" id="signupEmail" placeholder="business@example.com" required>
+                    <div class="stat-item">
+                        <div class="stat-value">50K+</div>
+                        <div class="stat-label">Feedback Collected</div>
                     </div>
-                    <div class="form-group">
-                        <label for="phoneNumber">Phone Number</label>
-                        <input type="tel" id="phoneNumber" placeholder="+231 XXX XXXX" required>
+                    <div class="stat-item">
+                        <div class="stat-value">4.9/5</div>
+                        <div class="stat-label">Customer Rating</div>
                     </div>
-                    <div class="form-group">
-                        <label for="signupPassword">Password</label>
-                        <input type="password" id="signupPassword" placeholder="Minimum 8 characters" required>
-                    </div>
-                    <div class="form-group">
-                        <label class="checkbox">
-                            <input type="checkbox" id="agreeTerms" required>
-                            <span>I agree to the <a href="#" class="link">Terms of Service</a> and <a href="#" class="link">Privacy Policy</a></span>
-                        </label>
-                    </div>
-                    <button type="submit" class="btn-primary btn-full">Create Account</button>
-                </form>
-                <div class="auth-footer">
-                    <p>Already have an account? <a href="#" id="showLogin" class="link">Sign in</a></p>
                 </div>
             </div>
-            <div class="auth-decoration">
-                <div class="decoration-circle"></div>
-                <div class="decoration-circle"></div>
-                <div class="decoration-circle"></div>
+            <div class="auth-right">
+                <div class="auth-card">
+                    <h2>Create your account</h2>
+                    <p class="auth-subtitle">Get started with a free account</p>
+                    <form id="signupForm" class="auth-form">
+                        <div class="form-group">
+                            <label for="businessName">Business Name</label>
+                            <input type="text" id="businessName" placeholder="Your Business Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="signupEmail">Email</label>
+                            <input type="email" id="signupEmail" placeholder="you@business.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phoneNumber">Phone Number</label>
+                            <input type="tel" id="phoneNumber" placeholder="+231 XXX XXXX" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="signupPassword">Password</label>
+                            <input type="password" id="signupPassword" placeholder="Minimum 8 characters" required>
+                        </div>
+                        <button type="submit" class="btn-primary btn-large">Create account</button>
+                    </form>
+                    <div class="auth-divider">
+                        <span>Already have an account?</span>
+                    </div>
+                    <button id="showLogin" class="btn-secondary btn-large">Sign in instead</button>
+                </div>
             </div>
         </div>
     </div>
@@ -105,14 +136,14 @@
         <aside class="sidebar">
             <div class="sidebar-header">
                 <div class="logo">
-                    <span class="logo-icon">💬</span>
+                    <div class="logo-icon">💬</div>
                     <span class="logo-text">FeedbackHub</span>
                 </div>
             </div>
             <nav class="sidebar-nav">
                 <a href="#" class="nav-item active" data-page="overview">
                     <span class="nav-icon">📊</span>
-                    <span>Overview</span>
+                    <span>Dashboard</span>
                 </a>
                 <a href="#" class="nav-item" data-page="feedback">
                     <span class="nav-icon">💬</span>
@@ -127,22 +158,23 @@
                     <span class="nav-icon">👥</span>
                     <span>Customers</span>
                 </a>
+                <div class="nav-divider"></div>
                 <a href="#" class="nav-item" data-page="settings">
                     <span class="nav-icon">⚙️</span>
                     <span>Settings</span>
                 </a>
             </nav>
             <div class="sidebar-footer">
-                <div class="user-profile">
-                    <div class="user-avatar">B</div>
+                <div class="user-card">
+                    <div class="user-avatar" id="userAvatar">B</div>
                     <div class="user-info">
-                        <div class="user-name" id="sidebarBusinessName">Business Name</div>
-                        <div class="user-email" id="sidebarEmail">email@example.com</div>
+                        <div class="user-name" id="userName">Business Name</div>
+                        <div class="user-role">Admin</div>
                     </div>
                 </div>
-                <button class="btn-logout" id="logoutBtn">
+                <button class="btn-ghost btn-icon-text" id="logoutBtn">
                     <span>🚪</span>
-                    Logout
+                    <span>Logout</span>
                 </button>
             </div>
         </aside>
@@ -151,92 +183,86 @@
         <main class="main-content">
             <!-- Topbar -->
             <header class="topbar">
-                <div class="topbar-left">
-                    <h2 id="pageTitle">Overview</h2>
+                <div class="topbar-search">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" placeholder="Search feedback, customers...">
                 </div>
-                <div class="topbar-right">
-                    <div class="search-box">
-                        <input type="text" placeholder="Search feedback...">
-                        <span class="search-icon">🔍</span>
-                    </div>
-                    <button class="btn-icon notification-btn">
+                <div class="topbar-actions">
+                    <button class="btn-icon">
                         <span>🔔</span>
-                        <span class="notification-dot"></span>
+                        <span class="notification-badge">3</span>
                     </button>
                 </div>
             </header>
 
             <!-- Overview Page -->
             <div id="overviewPage" class="page-content">
-                <!-- Stats Cards -->
+                <div class="page-header">
+                    <div>
+                        <h1 class="page-title">Dashboard</h1>
+                        <p class="page-subtitle">Welcome back! Here's what's happening with your feedback.</p>
+                    </div>
+                </div>
+
+                <!-- Stats -->
                 <div class="stats-grid">
                     <div class="stat-card">
-                        <div class="stat-header">
-                            <span class="stat-label">Total Feedback</span>
-                            <span class="stat-icon">💬</span>
+                        <div class="stat-content">
+                            <div class="stat-label">Total Feedback</div>
+                            <div class="stat-value">247</div>
+                            <div class="stat-trend positive">
+                                <span>↗</span>
+                                <span>12% vs last month</span>
+                            </div>
                         </div>
-                        <div class="stat-value">247</div>
-                        <div class="stat-change positive">+12% from last month</div>
+                        <div class="stat-icon blue">💬</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-header">
-                            <span class="stat-label">Pending Review</span>
-                            <span class="stat-icon">⏳</span>
+                        <div class="stat-content">
+                            <div class="stat-label">Pending</div>
+                            <div class="stat-value">12</div>
+                            <div class="stat-trend warning">
+                                <span>⚠️</span>
+                                <span>Needs attention</span>
+                            </div>
                         </div>
-                        <div class="stat-value">12</div>
-                        <div class="stat-change warning">Action required</div>
+                        <div class="stat-icon yellow">⏳</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-header">
-                            <span class="stat-label">Response Rate</span>
-                            <span class="stat-icon">✅</span>
+                        <div class="stat-content">
+                            <div class="stat-label">Avg. Response Time</div>
+                            <div class="stat-value">2.4h</div>
+                            <div class="stat-trend positive">
+                                <span>↗</span>
+                                <span>15% faster</span>
+                            </div>
                         </div>
-                        <div class="stat-value">95%</div>
-                        <div class="stat-change positive">+5% from last month</div>
+                        <div class="stat-icon green">⚡</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-header">
-                            <span class="stat-label">Avg. Rating</span>
-                            <span class="stat-icon">⭐</span>
+                        <div class="stat-content">
+                            <div class="stat-label">Satisfaction</div>
+                            <div class="stat-value">4.7/5</div>
+                            <div class="stat-trend positive">
+                                <span>⭐</span>
+                                <span>Excellent</span>
+                            </div>
                         </div>
-                        <div class="stat-value">4.7</div>
-                        <div class="stat-change positive">Excellent</div>
+                        <div class="stat-icon purple">😊</div>
                     </div>
                 </div>
 
                 <!-- Recent Feedback -->
-                <div class="content-section">
+                <div class="section-card">
                     <div class="section-header">
-                        <h3>Recent Feedback</h3>
-                        <button class="btn-secondary">View All</button>
+                        <div>
+                            <h3 class="section-title">Recent Feedback</h3>
+                            <p class="section-subtitle">Latest customer responses</p>
+                        </div>
+                        <button class="btn-ghost">View all →</button>
                     </div>
                     <div class="feedback-list" id="recentFeedbackList">
-                        <!-- Will be populated by JS -->
-                    </div>
-                </div>
-
-                <!-- Quick Actions -->
-                <div class="content-section">
-                    <div class="section-header">
-                        <h3>Quick Actions</h3>
-                    </div>
-                    <div class="quick-actions">
-                        <button class="action-card">
-                            <span class="action-icon">📱</span>
-                            <span class="action-text">Get QR Code</span>
-                        </button>
-                        <button class="action-card">
-                            <span class="action-icon">📧</span>
-                            <span class="action-text">Email Campaign</span>
-                        </button>
-                        <button class="action-card">
-                            <span class="action-icon">📊</span>
-                            <span class="action-text">Export Report</span>
-                        </button>
-                        <button class="action-card">
-                            <span class="action-icon">👥</span>
-                            <span class="action-text">Invite Team</span>
-                        </button>
+                        <!-- Populated by JS -->
                     </div>
                 </div>
             </div>
@@ -244,52 +270,135 @@
             <!-- Feedback Page -->
             <div id="feedbackPage" class="page-content" style="display: none;">
                 <div class="page-header">
-                    <div class="filter-tabs">
-                        <button class="filter-tab active" data-filter="all">All</button>
-                        <button class="filter-tab" data-filter="pending">Pending</button>
-                        <button class="filter-tab" data-filter="reviewed">Reviewed</button>
-                        <button class="filter-tab" data-filter="archived">Archived</button>
+                    <div>
+                        <h1 class="page-title">All Feedback</h1>
+                        <p class="page-subtitle">Manage and respond to customer feedback</p>
                     </div>
                     <button class="btn-primary">
-                        <span>📥</span> Export
+                        <span>📥</span>
+                        <span>Export</span>
                     </button>
                 </div>
+
+                <div class="filter-bar">
+                    <div class="filter-group">
+                        <button class="filter-chip active" data-filter="all">All</button>
+                        <button class="filter-chip" data-filter="pending">Pending</button>
+                        <button class="filter-chip" data-filter="reviewed">Reviewed</button>
+                        <button class="filter-chip" data-filter="archived">Archived</button>
+                    </div>
+                    <div class="filter-group">
+                        <select class="filter-select">
+                            <option>All Ratings</option>
+                            <option>5 Stars</option>
+                            <option>4 Stars</option>
+                            <option>3 Stars</option>
+                            <option>2 Stars</option>
+                            <option>1 Star</option>
+                        </select>
+                        <select class="filter-select">
+                            <option>All Sentiments</option>
+                            <option>Positive</option>
+                            <option>Neutral</option>
+                            <option>Negative</option>
+                        </select>
+                    </div>
+                </div>
+
                 <div class="feedback-grid" id="allFeedbackList">
-                    <!-- Will be populated by JS -->
+                    <!-- Populated by JS -->
                 </div>
             </div>
 
             <!-- Settings Page -->
             <div id="settingsPage" class="page-content" style="display: none;">
-                <div class="settings-container">
-                    <div class="settings-nav">
-                        <button class="settings-tab active" data-tab="business">Business Profile</button>
-                        <button class="settings-tab" data-tab="feedback">Feedback Settings</button>
-                        <button class="settings-tab" data-tab="notifications">Notifications</button>
-                        <button class="settings-tab" data-tab="integrations">Integrations</button>
+                <div class="page-header">
+                    <div>
+                        <h1 class="page-title">Settings</h1>
+                        <p class="page-subtitle">Manage your business profile and preferences</p>
                     </div>
+                </div>
+
+                <div class="settings-layout">
+                    <nav class="settings-nav">
+                        <button class="settings-nav-item active" data-tab="profile">
+                            <span>👤</span>
+                            <span>Business Profile</span>
+                        </button>
+                        <button class="settings-nav-item" data-tab="notifications">
+                            <span>🔔</span>
+                            <span>Notifications</span>
+                        </button>
+                        <button class="settings-nav-item" data-tab="integrations">
+                            <span>🔗</span>
+                            <span>Integrations</span>
+                        </button>
+                    </nav>
+
                     <div class="settings-content">
-                        <div id="businessTab" class="settings-panel active">
-                            <h3>Business Profile</h3>
-                            <form class="settings-form">
-                                <div class="form-group">
-                                    <label>Business Name</label>
-                                    <input type="text" id="settingsBusinessName" placeholder="Your Business Ltd">
+                        <div id="profileTab" class="settings-panel active">
+                            <div class="section-card">
+                                <h3 class="section-title">Business Information</h3>
+                                <form class="settings-form">
+                                    <div class="form-group">
+                                        <label>Business Name</label>
+                                        <input type="text" id="settingsBusinessName" placeholder="Your Business Ltd">
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label>Email</label>
+                                            <input type="email" id="settingsEmail" placeholder="business@example.com">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Phone</label>
+                                            <input type="tel" id="settingsPhone" placeholder="+231 XXX XXXX">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Address</label>
+                                        <textarea id="settingsAddress" rows="3" placeholder="Business address in Liberia"></textarea>
+                                    </div>
+                                    <button type="submit" class="btn-primary">Save Changes</button>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div id="notificationsTab" class="settings-panel">
+                            <div class="section-card">
+                                <h3 class="section-title">Notification Preferences</h3>
+                                <div class="notification-settings">
+                                    <div class="notification-item">
+                                        <div>
+                                            <div class="notification-label">New Feedback</div>
+                                            <div class="notification-desc">Get notified when customers submit new feedback</div>
+                                        </div>
+                                        <label class="toggle">
+                                            <input type="checkbox" checked>
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                    </div>
+                                    <div class="notification-item">
+                                        <div>
+                                            <div class="notification-label">Daily Summary</div>
+                                            <div class="notification-desc">Receive a daily digest of all feedback</div>
+                                        </div>
+                                        <label class="toggle">
+                                            <input type="checkbox" checked>
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                    </div>
+                                    <div class="notification-item">
+                                        <div>
+                                            <div class="notification-label">Urgent Feedback</div>
+                                            <div class="notification-desc">Instant alerts for negative feedback</div>
+                                        </div>
+                                        <label class="toggle">
+                                            <input type="checkbox">
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                    </div>
                                 </div>
-                                <div class="form-group">
-                                    <label>Email</label>
-                                    <input type="email" id="settingsEmail" placeholder="business@example.com">
-                                </div>
-                                <div class="form-group">
-                                    <label>Phone</label>
-                                    <input type="tel" id="settingsPhone" placeholder="+231 XXX XXXX">
-                                </div>
-                                <div class="form-group">
-                                    <label>Address</label>
-                                    <textarea id="settingsAddress" rows="3" placeholder="Business address in Liberia"></textarea>
-                                </div>
-                                <button type="submit" class="btn-primary">Save Changes</button>
-                            </form>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -298,15 +407,17 @@
     </div>
 
     <!-- Feedback Detail Modal -->
-    <div id="feedbackModal" class="modal" style="display: none;">
+    <div id="feedbackModal" class="modal">
         <div class="modal-overlay"></div>
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>Feedback Details</h3>
-                <button class="modal-close">&times;</button>
-            </div>
-            <div class="modal-body" id="feedbackDetailContent">
-                <!-- Will be populated by JS -->
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title">Feedback Details</h3>
+                    <button class="modal-close">✕</button>
+                </div>
+                <div class="modal-body" id="feedbackDetailContent">
+                    <!-- Populated by JS -->
+                </div>
             </div>
         </div>
     </div>
